@@ -15,6 +15,21 @@ function homepage(){
 
 function flux(){
     global $twig;
+    echo $twig->render('flux.html.twig');
+}
+
+function contact(){
+    global $twig;
+    echo $twig->render('contact.html.twig');
+}
+
+function apropos(){
+    global $twig;
+    echo $twig->render('about.html.twig');
+}
+
+function post(){
+    global $twig;
     echo $twig->render('post.html.twig');
 }
 

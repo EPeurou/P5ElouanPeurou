@@ -1,5 +1,5 @@
 <?php
-
+include '/model/selectFlux.php';
 require __DIR__ . '/vendor/autoload.php';
 
 use Twig\Environment;
@@ -15,7 +15,7 @@ function homepage(){
 
 function flux(){
     global $twig;
-    echo $twig->render('flux.html.twig');
+    echo $twig->render('flux.html.twig', ['post'=> ['title' => $title, 'content' => $content, 'description' => $description, 'date' => $date]]);
 }
 
 function contact(){

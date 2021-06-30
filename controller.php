@@ -33,3 +33,8 @@ function post(){
     echo $twig->render('post.html.twig');
 }
 
+function confirm(){
+    global $twig;
+    echo $twig->render('confirm.html.twig');
+}
+

@@ -1,5 +1,5 @@
 <?php
-
+error_log("[contenu post]".print_r($_POST, true));
 require_once 'vendor/autoload.php';
 
 if(isset($_POST)) {
@@ -39,26 +39,28 @@ if(isset($_POST)) {
                         </div>";
     }
       
-      
     $email_body .= "</div>";
 
-    $transport = (new Swift_SmtpTransport('ssl0.ovh.net', 465))
-    ->setUsername('contact@npack.info')
-    ->setPassword('Biloute29!');
+    $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+        ->setUsername('contact.peurou@gmail.com')
+        ->setPassword('elticbtbbclljihm')
+    ;
   
-  // Create the Mailer using your created Transport
+//   // Create the Mailer using your created Transport
     $mailer = new Swift_Mailer($transport);
 
-    $message = (new Swift_Message('Wonderful Subject'))
-        ->setFrom([$email => $firstname, $name])
-        ->setTo(['contact@npack.info'])
-        ->setBody($msg);
-
+    $message = (new Swift_Message('contact blog'))
+        ->setFrom([$email => $name." ".$firstname])
+        ->setTo(['contact.peurou@gmail.com'])
+        ->setBody($msg." "."de"." ".$email);
+    
+    $result = $mailer->send($message);
       
-    if($result = $mailer->send($message)) {
-        echo "<p>Thank you for contacting us, $name. You will get a reply within 24 hours.</p>";
+    if($result) {
+        header("location: index.php?action=confirm");
+        exit;
     } else {
-        echo '<p>We are sorry but the email did not go through.</p>';
+        echo"We are sorry but the email did not go through";
     }
       
 } else {

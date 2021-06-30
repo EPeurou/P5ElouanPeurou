@@ -19,6 +19,9 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'post') {
         post();
     }
+    elseif ($_GET['action'] == 'confirm') {
+        confirm();
+    }
 }
 else {
     homepage();

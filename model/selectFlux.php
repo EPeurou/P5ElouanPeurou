@@ -1,10 +1,12 @@
 <?php
-include 'connect.php';
+require 'connect.php';
 
 
 $req=$bdd->query('SELECT `title`, `content`, `description`,`date` FROM post');
 
-$title = ['title'];
-$content = ['content'];
-$description = ['description'];
-$date = ['date'];
+$data=$req->fetch();
+
+$title = $data['title'];
+$content = $data['content'];
+$description = $data['description'];
+$date = $data['date'];

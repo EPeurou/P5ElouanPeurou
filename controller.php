@@ -13,12 +13,14 @@ function homepage(){
 }
 
 function flux(){
-    global $twig,$title,$content,$description,$date;
+    global $twig,$title,$content,$description,$date,$pseudo,$categoryName;
     echo $twig->render('flux.html.twig', [
         'title' => $title,
         'content' => $content,
         'description' => $description,
-        'date' => $date
+        'date' => $date,
+        'pseudo' => $pseudo,
+        'category' => $categoryName
     ]);
 }
 

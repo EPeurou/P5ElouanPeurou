@@ -2,7 +2,7 @@
 require 'connect.php';
 
 
-$req=$bdd->query('SELECT `id`,`title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post WHERE id = 1');
+$req=$bdd->query('SELECT `id`,`title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post WHERE id = "'.$_GET['id'].'"');
 
 $dataPost=$req->fetch();
 

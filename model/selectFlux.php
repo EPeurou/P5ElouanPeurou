@@ -2,7 +2,7 @@
 require 'connect.php';
 
 
-$req=$bdd->prepare('SELECT `title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post');
+$req=$bdd->prepare('SELECT `title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post ORDER BY id DESC');
 
 $req->execute(array());
 
@@ -33,7 +33,7 @@ while ($row = $req->fetch(PDO::FETCH_ASSOC)){
 
     $row['category'] = $categoryName;
     $req2 = null;
-    
+
     $data[] = $row;
 
 }

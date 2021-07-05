@@ -35,7 +35,7 @@
                 {% for row in data %}
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="index.php?action=post">
+                        <a href="index.php?action=post&amp;id={{row.id}}">
                             <h2 class="post-title">{{ row.title }}</h2>
                             <h3 class="post-subtitle">{{ row.description }}</h3>
                         </a>

@@ -2,7 +2,7 @@
 require 'connect.php';
 
 
-$req=$bdd->prepare('SELECT `title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post ORDER BY id DESC');
+$req=$bdd->prepare('SELECT `id`, `title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post ORDER BY id DESC');
 
 $req->execute(array());
 

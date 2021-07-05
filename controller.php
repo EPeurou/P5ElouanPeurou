@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 require ('model/selectFlux.php');
+require ('model/selectPostDetails.php');
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -31,8 +32,16 @@ function apropos(){
 }
 
 function post(){
-    global $twig;
-    echo $twig->render('post.html.twig');
+    global $twig,$titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,$pseudoPost,$idPost;
+    echo $twig->render('post.html.twig',[
+        'title' => $titlePost,
+        'content' => $contentPost,
+        'description' => $descriptionPost,
+        'date' => $datePost,
+        'category' => $categoryPost,
+        'pseudo' => $pseudoPost,
+        'id' => $idPost
+    ]);
 }
 
 function confirm(){

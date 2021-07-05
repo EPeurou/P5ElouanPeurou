@@ -32,25 +32,23 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                {% for title in titles %}
+                {% for row in data %}
                     <!-- Post preview-->
                     <div class="post-preview">
                         <a href="index.php?action=post">
-                            <h2 class="post-title">{{ title }}</h2>
-                            <h3 class="post-subtitle">{{ description }}</h3>
+                            <h2 class="post-title">{{ row.title }}</h2>
+                            <h3 class="post-subtitle">{{ row.description }}</h3>
                         </a>
                         <p class="post-meta">
-                            Posted by
-                            {{ pseudo }}
-                            on {{ date }}
+                            Posté par
+                            {{ row.pseudo }}
+                            le {{ row.date }}
                         </p>
-                        <div class="btn btn-primary">{{ category }}</div>
+                        <div class="btn btn-primary">{{ row.category }}</div>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
                 {% endfor %}
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
         </div>

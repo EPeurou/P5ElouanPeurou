@@ -3,6 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 require ('model/selectFlux.php');
 require ('model/selectPostDetails.php');
 require ('model/selectComment.php');
+require ('model/selectCategory.php');
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -26,6 +27,13 @@ function flux(){
 function contact(){
     global $twig;
     echo $twig->render('contact.html.twig');
+}
+
+function newPost(){
+    global $twig,$rowCategory,$varCategory,$categoryName;
+    echo $twig->render('newPost.html.twig',[
+        'categoryName' => $categoryName
+    ]);
 }
 
 function apropos(){

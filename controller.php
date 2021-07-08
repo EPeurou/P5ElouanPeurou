@@ -3,6 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 require ('model/selectFlux.php');
 require ('model/selectPostDetails.php');
 require ('model/selectComment.php');
+
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -34,7 +35,7 @@ function apropos(){
 
 function post(){
     global $twig,$titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
-    $pseudoPost,$idPost,$idComment,$contentComment,$idPostComment,$dateComment,$idUserComment,$pseudoComment;
+    $pseudoPost,$idPost,$dataComment,$rowComment;
     echo $twig->render('post.html.twig',[
         'title' => $titlePost,
         'contentPost' => $contentPost,
@@ -43,12 +44,8 @@ function post(){
         'categoryPost' => $categoryPost,
         'pseudoPost' => $pseudoPost,
         'idPost' => $idPost,
-        'idComment' => $idComment,
-        'contentComment' => $contentComment,
-        'idPostComment' => $idPostComment,
-        'dateComment' => $dateComment,
-        'idUserComment' => $idUserComment,
-        'pseudoComment' => $pseudoComment
+        'dataComment' => $dataComment,
+        'rowComment' => $rowComment
     ]);
 }
 

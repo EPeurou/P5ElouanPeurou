@@ -38,43 +38,39 @@
         <div class="container">
             <div class="be-comment-block">
                 <h1 class="comments-title">Commentaires</h1>
-                <div class="be-comment">
-                    <div class="be-img-comment">	
-                        <a href="blog-detail-2.html">
+                {% for rowComment in dataComment %}
+                    <div class="be-comment">
+                        <div class="be-img-comment">	
                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
-                        </a>
-                    </div>
-                    <div class="be-comment-content">
-                            <span class="be-comment-name">
-                                <a href="blog-detail-2.html">{{ pseudoComment }}</a>
+                        </div>
+                        <div class="be-comment-content">
+                                <span class="be-comment-name">
+                                    {{ rowComment.pseudo }}
                                 </span>
-                            <span class="be-comment-time">
-                               {{ dateComment }}
-                            </span>
+                                <span class="be-comment-time">
+                                    {{ rowComment.date }}
+                                </span>
 
-                        <p class="be-comment-text">
-                            {{ contentComment }}
-                        </p>
+                            <p class="be-comment-text">
+                                {{ rowComment.content }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <form class="form-block">
+                {% endfor %}
+                <form class="form-block" action="model/insertComment.php" method="post">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
-                                <input class="form-input" type="text" placeholder="Your name">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="form-group">
-                                <input class="form-input" type="text" placeholder="Your email">
+                                <input class="form-input" type="text" placeholder="Pseudo" name="id">
+                                <input type="hidden" name="idPost" value="{{ idPost }}">
                             </div>
                         </div>
                         <div class="col-xs-12">									
                             <div class="form-group">
-                                <textarea class="form-input" placeholder="Your text"></textarea>
+                                <textarea class="form-input" placeholder="Commentaire" name="comment"></textarea>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-submit">submit</button>
+                        <input type="submit" class="btn btn-primary btn-submit" value="Envoyer">
                     </div>
                 </form>
             </div>

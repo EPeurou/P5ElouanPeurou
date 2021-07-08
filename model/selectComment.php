@@ -2,19 +2,33 @@
 require 'connect.php';
 
 
-$req=$bdd->query('SELECT `id`,`date`, `content`, `idPost`,`idUser` FROM comment WHERE id = 2');
+$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser` FROM comment WHERE idPost = "'.$_GET['id'].'"');
 
-$dataComment=$req->fetch();
+$req->execute(array());
 
-$idComment = $dataComment['id'];
-$contentComment = $dataComment['content'];
-$idPostComment = $dataComment['idPost'];
-$dateComment = $dataComment['date'];
-$idUserComment = $dataComment['idUser'];
+$dataComment=[];
 
+while ($rowComment = $req->fetch(PDO::FETCH_ASSOC)){
 
-$req=$bdd->query("SELECT `pseudo` FROM user WHERE id = '".$idUserComment."'");
+    $req1=$bdd->prepare("SELECT `pseudo` FROM user WHERE id = ? ");
 
-$dataComment=$req->fetch();
+    $req1->execute(array($rowComment['idUser']));
 
-$pseudoComment = $dataComment['pseudo'];
+    $row1=$req1->fetch(PDO::FETCH_ASSOC);
+
+    $pseudo = $row1['pseudo'];
+
+    $rowComment['pseudo'] = $pseudo;
+
+    $dataComment[] = $rowComment;
+
+}
+// $req=$bdd->query("SELECT `pseudo` FROM user WHERE id = '".$idUserComment."'");
+
+// $dataComment=$req->fetch();
+// $pseudoComment = $dataComment['pseudo'];
+// $idComment = $dataComment['id'];
+// $contentComment = $dataComment['content'];
+// $idPostComment = $dataComment['idPost'];
+// $dateComment = $dataComment['date'];
+// $idUserComment = $dataComment['idUser'];

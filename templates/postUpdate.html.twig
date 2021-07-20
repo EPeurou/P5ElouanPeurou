@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +15,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Nouveau post!</h1>
+                            <h1>Modification du post</h1>
                         </div>
                     </div>
                 </div>
@@ -22,11 +23,12 @@
         </header>
         <div class="container">
             <div class="be-comment-block">
-                <form class="form-block" action="model/insertPost.php" method="post">
+                <form class="form-block" action="model/updatePost.php" method="post">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
-                                <input class="form-input" type="text" placeholder="Titre" name="title">
+                                <input class="form-input" type="text" placeholder="Titre" name="title" value="{{ title }}">
+                                <input type="hidden" value="{{ idPost }}" name="idUp"/>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
@@ -42,14 +44,14 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <textarea class="form-input" type="text" placeholder="Description" name="description"></textarea>
+                                <textarea class="form-input" type="text" placeholder="Description" name="description">{{ descriptionPost }}</textarea>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">									
                             <div class="form-group">
-                                <textarea class="form-input" placeholder="Contenu" name="content"></textarea>
+                                <textarea class="form-input" placeholder="Contenu" name="content">{{ contentPost }}</textarea>
                                 <input type="hidden" name="idUser" value="1">
                             </div>
                         </div>

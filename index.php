@@ -25,6 +25,15 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'newPost') {
         newPost();
     }
+    elseif ($_GET['action'] == 'myPost') {
+        myPost();
+    }
+    elseif ($_GET['action'] == 'postDelUp') {
+        postDelUp();
+    }
+    elseif ($_GET['action'] == 'postUpdate') {
+        postUpdate();
+    }
 }
 else {
     homepage();

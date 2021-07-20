@@ -2,7 +2,7 @@
 require 'connect.php';
 
 
-$req=$bdd->prepare("SELECT `name` FROM category");
+$req=$bdd->prepare("SELECT `id`,`name` FROM category");
 
 $req->execute(array());
 
@@ -11,6 +11,8 @@ $req->execute(array());
 $varCategory=[];
 
 while ($rowCategory = $req->fetch(PDO::FETCH_ASSOC)){
+
+    // $rowCategory['name'] = $categoryName;
 
     $varCategory[] = $rowCategory;
 

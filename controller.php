@@ -4,6 +4,7 @@ require ('model/selectFlux.php');
 require ('model/selectPostDetails.php');
 require ('model/selectComment.php');
 require ('model/selectCategory.php');
+require ('model/selectMyPost.php');
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -32,7 +33,8 @@ function contact(){
 function newPost(){
     global $twig,$rowCategory,$varCategory,$categoryName;
     echo $twig->render('newPost.html.twig',[
-        'categoryName' => $categoryName
+        'categoryName' => $categoryName,
+        'varCategory' => $varCategory
     ]);
 }
 
@@ -62,3 +64,40 @@ function confirm(){
     echo $twig->render('confirm.html.twig');
 }
 
+function myPost(){
+    global $twig,$data,$row;
+    echo $twig->render('myPost.html.twig', [
+        'data' => $data,
+        'row' => $row
+    ]);
+}
+
+function postDelUp(){
+    global $twig,$titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
+    $pseudoPost,$idPost,$dataComment,$rowComment,$data,$row;
+    echo $twig->render('postDeleteUpdate.html.twig', [
+        'title' => $titlePost,
+        'contentPost' => $contentPost,
+        'descriptionPost' => $descriptionPost,
+        'datePost' => $datePost,
+        'categoryPost' => $categoryPost,
+        'pseudoPost' => $pseudoPost,
+        'idPost' => $idPost,
+        'dataComment' => $dataComment,
+        'rowComment' => $rowComment,
+        'data' => $data,
+        'row' => $row
+    ]);
+}
+
+function postUpdate(){
+    global $twig,$rowCategory,$varCategory,$categoryName,$idPost,$titlePost,$contentPost,$descriptionPost;
+    echo $twig->render('postUpdate.html.twig',[
+        'categoryName' => $categoryName,
+        'varCategory' => $varCategory,
+        'idPost' => $idPost,
+        'title' => $titlePost,
+        'contentPost' => $contentPost,
+        'descriptionPost' => $descriptionPost,
+    ]);
+}

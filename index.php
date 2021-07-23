@@ -34,6 +34,12 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'postUpdate') {
         postUpdate();
     }
+    elseif ($_GET['action'] == 'login') {
+        login();
+    }
+    elseif ($_GET['action'] == 'register') {
+        register();
+    }
 }
 else {
     homepage();

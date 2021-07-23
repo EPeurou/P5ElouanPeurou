@@ -1,46 +1,43 @@
 <?php
 require 'connect.php';
+session_start();
+$id = $_SESSION['idUser'];
 
 
-$req=$bdd->prepare('SELECT `id`, `title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post WHERE idUser = 1  ORDER BY id DESC');
+$req=$bdd->prepare('SELECT `id`, `title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post WHERE idUser = :idUser  ORDER BY id DESC');
 
-$req->execute(array());
+$req->execute(array(
+    ':idUser' => $id
+));
 
-$data=[];
+$dataMy=[];
 
-while ($row = $req->fetch(PDO::FETCH_ASSOC)){
+while ($rowMy = $req->fetch(PDO::FETCH_ASSOC)){
 
 
     $req1=$bdd->prepare("SELECT `pseudo` FROM user WHERE id = ? ");
 
-    $req1->execute(array($row['idUser']));
+    $req1->execute(array($rowMy['idUser']));
 
     $row1=$req1->fetch(PDO::FETCH_ASSOC);
 
-    $pseudo = $row1['pseudo'];
+    $pseudoMy = $row1['pseudo'];
 
-    $row['pseudo'] = $pseudo;
+    $rowMy['pseudo'] = $pseudoMy;
     $req1 = null;
 
 
     $req2=$bdd->prepare("SELECT `name` FROM category WHERE id = ? ");
 
-    $req2->execute(array($row['idCategory']));
+    $req2->execute(array($rowMy['idCategory']));
 
     $row2=$req2->fetch(PDO::FETCH_ASSOC);
 
-    $categoryName = $row2['name'];
+    $categoryNameMy = $row2['name'];
 
-    $row['category'] = $categoryName;
+    $rowMy['category'] = $categoryNameMy;
     $req2 = null;
 
-    $data[] = $row;
+    $dataMy[] = $rowMy;
 
 }
-
-// $title = $data['title'];
-// $content = $data['content'];
-// $description = $data['description'];
-// $date = $data['date'];
-// $idUser = $data['idUser'];
-// $idCategory = $data['idCategory'];

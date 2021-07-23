@@ -30,7 +30,9 @@
         </header>
         <!-- Main Content-->
         <div class="container px-4 px-lg-5">
-            <a href="index.php?action=newPost"><i class="fas fa-3x fa-pen-fancy"></i></a>
+            {% if session is not null %}
+                <a href="index.php?action=newPost"><i class="fas fa-3x fa-pen-fancy"></i></a>
+            {% endif %}
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                 {% for row in data %}

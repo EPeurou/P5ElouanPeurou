@@ -10,7 +10,14 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=home">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=flux">Flux</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=myPost">Mes Posts</a></li>
+                        {% if session is null %}
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=login">Se connecter</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=register">S'incrire</a></li>
+                        {% endif %}
+                        {% if session|default()%}
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=myPost">Mes Posts</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="model/logout.php">Se déconnecter</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

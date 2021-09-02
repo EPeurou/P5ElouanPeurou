@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog</title>
         {% block stylesheets %}   
             {% include "source.html.twig" %}
         {% endblock %}
@@ -29,7 +34,7 @@
                             <h1>{{ title }}</h1>
                             <h2 class="subheading">{{ descriptionPost }}</h2>
                             <span class="meta">
-                                Posté par {{ pseudoPost }} le {{ datePost }}
+                                Posté par {{ authorPost }} le {{ datePost }}
                             </span>
                         </div>
                     </div>
@@ -68,22 +73,6 @@
                         </div>
                     </div>
                 {% endfor %}
-                <form class="form-block" action="model/insertComment.php" method="post">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="form-group">
-                                <input class="form-input" type="text" placeholder="Pseudo" name="id">
-                                <input type="hidden" name="idPost" value="{{ idPost }}">
-                            </div>
-                        </div>
-                        <div class="col-xs-12">									
-                            <div class="form-group">
-                                <textarea class="form-input" placeholder="Commentaire" name="comment"></textarea>
-                            </div>
-                        </div>
-                        <input type="submit" class="btn btn-primary btn-submit" value="Envoyer">
-                    </div>
-                </form>
             </div>
         </div>
         <!-- Footer-->

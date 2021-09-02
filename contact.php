@@ -1,5 +1,4 @@
 <?php
-error_log("[contenu post]".print_r($_POST, true));
 require_once 'vendor/autoload.php';
 
 if(isset($_POST)) {
@@ -12,7 +11,7 @@ if(isset($_POST)) {
     if(isset($_POST['name'])) {
         $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
         $email_body .= "<div>
-                           <label><b>Name:</b></label>&nbsp;<span>".$email."</span>
+                           <label><b>Name:</b></label>&nbsp;<span>".$name."</span>
                         </div>";
     }
 
@@ -52,7 +51,7 @@ if(isset($_POST)) {
     $message = (new Swift_Message('contact blog'))
         ->setFrom([$email => $name." ".$firstname])
         ->setTo(['contact.peurou@gmail.com'])
-        ->setBody($msg." "."de"." ".$email);
+        ->setBody($msg." "."de"." ".$email." ".$firstname." ".$name);
     
     $result = $mailer->send($message);
       

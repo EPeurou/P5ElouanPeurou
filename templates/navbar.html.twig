@@ -14,8 +14,11 @@
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=login">Se connecter</a></li>
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=register">S'incrire</a></li>
                         {% endif %}
-                        {% if session|default()%}
-                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=myPost">Mes Posts</a></li>
+                        {% if admin == 1 %}
+                                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=myPost">Mes Posts</a></li>
+                                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=admin">Administration</a></li>
+                        {% endif %}
+                        {% if session is not null %}
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="model/logout.php">Se déconnecter</a></li>
                         {% endif %}
                     </ul>

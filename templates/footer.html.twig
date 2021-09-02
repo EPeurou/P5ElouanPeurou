@@ -1,36 +1,72 @@
-<!-- Footer-->
-<footer class="border-top">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-10 col-xl-7">
-                <ul class="list-inline text-center">
-                    <li class="list-inline-item">
-                        <a href="#!">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://github.com/EPeurou">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="assets/img/CvElouanPeurou.pdf">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="far fa-file-pdf fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+        <ul class="list-inline text-center">
+            <li class="list-inline-item">
+                <a href="#!">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://github.com/EPeurou">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="assets/img/CvElouanPeurou.pdf">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="far fa-file-pdf fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section>
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="offset-md-5 col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Menu</h5>
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <ul class="list-unstyled mb-0">
+                    <li class="nav-item"><a class="nav-link navfooter px-lg-3 py-3 py-lg-4" href="index.php?action=home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link navfooter px-lg-3 py-3 py-lg-4" href="index.php?action=flux">Flux</a></li>
+                    {% if session is null %}
+                        <li class="nav-item"><a class="nav-link navfooter px-lg-3 py-3 py-lg-4" href="index.php?action=login">Se connecter</a></li>
+                        <li class="nav-item"><a class="nav-link navfooter px-lg-3 py-3 py-lg-4" href="index.php?action=register">S'incrire</a></li>
+                    {% endif %}
+                    {% if admin == 1 %}
+                        <li class="nav-item"><a class="nav-link navfooter px-lg-3 py-3 py-lg-4" href="index.php?action=myPost">Mes Posts</a></li>
+                        <li class="nav-item"><a class="nav-link navfooter px-lg-3 py-3 py-lg-4" href="index.php?action=admin">Administration</a></li>
+                    {% endif %}
+                    {% if session is not null %}
+                        <li class="nav-item"><a class="nav-link navfooter px-lg-3 py-3 py-lg-4" href="model/logout.php">Se déconnecter</a></li>
+                    {% endif %}
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
             </div>
         </div>
-    </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
+  </div>
+  <!-- Copyright -->
 </footer>
+<!-- Footer -->

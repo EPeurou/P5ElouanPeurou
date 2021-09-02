@@ -30,7 +30,7 @@
         </header>
         <!-- Main Content-->
         <div class="container px-4 px-lg-5">
-            {% if session is not null %}
+            {% if (session is not null) and (admin == 1) %}
                 <a href="index.php?action=newPost"><i class="fas fa-3x fa-pen-fancy"></i></a>
             {% endif %}
             <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -44,7 +44,7 @@
                         </a>
                         <p class="post-meta">
                             Posté par
-                            {{ row.pseudo }}
+                            {{ row.author }}
                             le {{ row.date }}
                         </p>
                         <div class="btn btn-primary">{{ row.category }}</div>

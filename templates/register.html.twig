@@ -37,59 +37,30 @@
                         <div class="my-5">
                             <form action="model/insertUser.php" method="post">
                                 <div class="form-floating">
-                                    <input class="form-control" id="name" name="name" type="text" placeholder="Nom" data-sb-validations="required,email" />
+                                    <input class="form-control" id="name" name="name" type="text" placeholder="Nom" required="required" oninvalid="this.setCustomValidity('Un nom est requis')" oninput="this.setCustomValidity('')" />
                                     <label for="name">Nom</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Un nom est requis</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Le nom n'est pas valide</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="prenom" data-sb-validations="required,email" />
+                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="prenom" required="required" oninvalid="this.setCustomValidity('Un prenom est requis')" oninput="this.setCustomValidity('')" />
                                     <label for="firstName">Prénom</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Un prénom est requis</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Le prénom n'est pas valide</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="civility" name="civility" type="text" placeholder="M/Mme" data-sb-validations="required,email" />
-                                    <label for="email">Civilité</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Une civilité est requise</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">La civilité n'est pas valide</div>
+                                    <input class="form-control" id="civility" name="civility" type="text" placeholder="M/Mme" required="required" oninvalid="this.setCustomValidity('Une civilite est requise')" oninput="this.setCustomValidity('')"/>
+                                    <label for="civility">Civilité</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" name="email" type="text" placeholder="Email" data-sb-validations="required,email" />
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="Email" required="required" oninvalid="this.setCustomValidity('Une adresse email est requise')" oninput="this.setCustomValidity('')"/>
                                     <label for="email">Adresse Email</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Une adresse Email est requise</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">L'email n'est pas valide</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="password" name="password" placeholder="mot de passe"/>
-                                    <label for="message">Mot de passe</label>
-                                    <div class="invalid-feedback" data-sb-feedback="message:required">Un mot de passe est requis</div>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="mot de passe" required="required" oninvalid="this.setCustomValidity('Un mot de passe est requis')" oninput="this.setCustomValidity('')"/>
+                                    <label for="password">Mot de passe</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="pseudo" name="pseudo" type="text" placeholder="Pseudo" data-sb-validations="required,email" />
+                                    <input class="form-control" id="pseudo" name="pseudo" type="text" placeholder="Pseudo" required="required" oninvalid="this.setCustomValidity('Un pseudo est requis')" oninput="this.setCustomValidity('')"/>
                                     <label for="pseudo">Pseudo</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Un pseudo est requis</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Le pseudo n'est pas valide</div>
                                 </div>
                                 <br/>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Le formulaire à bien été validé merci!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                {# <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div> #}
-                                <!-- Submit Button-->
                                 <button class="btn btn-primary" type="submit">Valider</button>
                             </form>
                         </div>

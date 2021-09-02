@@ -38,35 +38,14 @@
                         <div class="my-5">
                             <form action="model/selectUser.php" method="post">
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" name="email" type="text" placeholder="Email" data-sb-validations="required,email" />
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="Email" required="required" oninvalid="this.setCustomValidity('Une adresse email est requise')" oninput="this.setCustomValidity('')"/>
                                     <label for="email">Adresse Email</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Une adresse Email est requise</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">L'email n'est pas valide</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="password" name="password" placeholder="mot de passe"/>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="mot de passe" required="required" oninvalid="this.setCustomValidity('Un mot de passe est requis')" oninput="this.setCustomValidity('')"/>
                                     <label for="message">Mot de passe</label>
-                                    <div class="invalid-feedback" data-sb-feedback="message:required">Un mot de passe est requis</div>
                                 </div>
                                 <br/>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Le formulaire à bien été validé merci!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                {# <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div> #}
-                                <!-- Submit Button-->
                                 <button class="btn btn-primary" type="submit">Valider</button>
                             </form>
                         </div>

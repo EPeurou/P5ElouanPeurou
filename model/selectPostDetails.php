@@ -1,8 +1,12 @@
 <?php
 require 'connect.php';
+$idPostCurrent = $_GET['id'];
 
+$req=$bdd->prepare('SELECT `id`,`title`, `content`, `description`,`date`, `idUser`, `idCategory`,`author` FROM post WHERE id = :idPost');
 
-$req=$bdd->query('SELECT `id`,`title`, `content`, `description`,`date`, `idUser`, `idCategory` FROM post WHERE id = "'.$_GET['id'].'"');
+$req->execute(array(
+    ':idPost' => $idPostCurrent
+));
 
 $dataPost=$req->fetch();
 
@@ -13,17 +17,15 @@ $descriptionPost = $dataPost['description'];
 $datePost = $dataPost['date'];
 $idUserPost = $dataPost['idUser'];
 $idCategoryPost = $dataPost['idCategory'];
+$authorPost = $dataPost['author'];
 
 
-$req=$bdd->query("SELECT `pseudo` FROM user WHERE id = '".$idUserPost."'");
+$req=$bdd->prepare("SELECT `name` FROM category WHERE id = :idCategory");
 
-$dataPost=$req->fetch();
+$req->execute(array(
+    ':idCategory' => $idCategoryPost
+));
 
-$pseudoPost = $dataPost['pseudo'];
-
-
-
-$req=$bdd->query("SELECT `name` FROM category WHERE id = '".$idCategoryPost."'");
 
 $dataPost=$req->fetch();
 

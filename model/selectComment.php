@@ -1,10 +1,13 @@
 <?php
-require 'connect.php';
+require 'connect.php'; 
 
+$idPost = $_GET['id'];
 
-$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser` FROM comment WHERE idPost = "'.$_GET['id'].'"');
+$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser` FROM comment WHERE idPost = :idPost AND validate = 1');
 
-$req->execute(array());
+$req->execute(array(
+    ':idPost' => $idPost
+));
 
 $dataComment=[];
 
@@ -23,12 +26,3 @@ while ($rowComment = $req->fetch(PDO::FETCH_ASSOC)){
     $dataComment[] = $rowComment;
 
 }
-// $req=$bdd->query("SELECT `pseudo` FROM user WHERE id = '".$idUserComment."'");
-
-// $dataComment=$req->fetch();
-// $pseudoComment = $dataComment['pseudo'];
-// $idComment = $dataComment['id'];
-// $contentComment = $dataComment['content'];
-// $idPostComment = $dataComment['idPost'];
-// $dateComment = $dataComment['date'];
-// $idUserComment = $dataComment['idUser'];

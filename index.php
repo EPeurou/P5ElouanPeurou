@@ -40,6 +40,12 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'register') {
         register();
     }
+    elseif ($_GET['action'] == 'admin') {
+        admin();
+    }
+    elseif ($_GET['action'] == 'confirmComment') {
+        confirmComment();
+    }
 }
 else {
     homepage();

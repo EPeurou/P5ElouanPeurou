@@ -46,6 +46,9 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'confirmComment') {
         confirmComment();
     }
+    elseif ($_GET['action'] == 'error') {
+        error();
+    }
 }
 else {
     homepage();

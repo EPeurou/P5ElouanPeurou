@@ -2,6 +2,10 @@
     color: rgb(1, 252, 43) !important;
 }
 
+.error-icon{
+    color: rgb(252, 1, 1) !important;
+}
+
 
 .be-comment-block {
     margin-bottom: 50px !important;

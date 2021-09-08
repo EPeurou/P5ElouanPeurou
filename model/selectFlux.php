@@ -2,7 +2,7 @@
 require 'connect.php';
 
 
-$req=$bdd->prepare('SELECT `id`,`title`,`content`,`description`,`date`,`idUser`,`idCategory`,`author` FROM post ORDER BY id DESC');
+$req=$bdd->prepare('SELECT `id`,`title`,`content`,`description`,`date`,`idUser`,`idCategory`,`author`, DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM post ORDER BY id DESC');
 
 $req->execute(array());
 

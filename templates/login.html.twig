@@ -39,6 +39,7 @@
                             <form action="model/selectUser.php" method="post">
                                 <div class="form-floating">
                                     <input class="form-control" id="email" name="email" type="email" placeholder="Email" required="required" oninvalid="this.setCustomValidity('Une adresse email est requise')" oninput="this.setCustomValidity('')"/>
+                                    <input type="hidden" name="token" value="{{ sessionToken }}">
                                     <label for="email">Adresse Email</label>
                                 </div>
                                 <div class="form-floating">

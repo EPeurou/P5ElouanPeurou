@@ -1,7 +1,7 @@
 <?php
 require 'connect.php'; 
 
-$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser` FROM comment WHERE validate = 0');
+$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM comment WHERE validate = 0');
 
 $req->execute(array());
 

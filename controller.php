@@ -1,6 +1,7 @@
 <?php
 if (!isset($_SESSION['idUser'])){
     session_start();
+    $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 }
 require __DIR__ . '/vendor/autoload.php';
 require ('model/selectFlux.php');
@@ -21,6 +22,7 @@ $twig = new Environment($loader);
 function homepage(){
     global $twig,$_SESSION,$nameUser,$firstNameUser,$emailUser,$admin;
     echo $twig->render('index.html.twig',[
+        'sessionToken' => $_SESSION['token'],
         'session' => $_SESSION['idUser'],
         'nameUser' => $nameUser,
         'firstName' => $firstNameUser,
@@ -49,6 +51,7 @@ function newPost(){
     echo $twig->render('newPost.html.twig',[
         'categoryName' => $categoryName,
         'varCategory' => $varCategory,
+        'sessionToken' => $_SESSION['token'],
         'session' => $_SESSION['idUser'],
         'admin' => $admin
     ]);
@@ -61,7 +64,7 @@ function apropos(){
 
 function post(){
     global $twig,$titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
-    $pseudoPost,$idPost,$authorPost,$dataComment,$rowComment,$_SESSION,$admin;
+    $pseudoPost,$idPost,$authorPost,$dataComment,$rowComment,$_SESSION,$admin,$creationDate;
     echo $twig->render('post.html.twig',[
         'title' => $titlePost,
         'contentPost' => $contentPost,
@@ -73,8 +76,10 @@ function post(){
         'idPost' => $idPost,
         'dataComment' => $dataComment,
         'rowComment' => $rowComment,
+        'sessionToken' => $_SESSION['token'],
         'session' => $_SESSION['idUser'],
-        'admin' => $admin
+        'admin' => $admin,
+        'creationDate' => $creationDate
     ]);
 }
 
@@ -98,7 +103,7 @@ function myPost(){
 
 function postDelUp(){
     global $twig,$titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
-    $pseudoPost,$idPost,$dataComment,$rowComment,$data,$row,$_SESSION,$admin,$authorPost;
+    $pseudoPost,$idPost,$dataComment,$rowComment,$data,$row,$_SESSION,$admin,$authorPost,$creationDate;
     echo $twig->render('postDeleteUpdate.html.twig', [
         'title' => $titlePost,
         'contentPost' => $contentPost,
@@ -113,7 +118,8 @@ function postDelUp(){
         'data' => $data,
         'row' => $row,
         'session' => $_SESSION['idUser'],
-        'admin' => $admin
+        'admin' => $admin,
+        'creationDate' => $creationDate
     ]);
 }
 
@@ -124,6 +130,7 @@ function postUpdate(){
         'varCategory' => $varCategory,
         'idPost' => $idPost,
         'title' => $titlePost,
+        'sessionToken' => $_SESSION['token'],
         'contentPost' => $contentPost,
         'descriptionPost' => $descriptionPost,
         'authorPost' => $authorPost,
@@ -136,6 +143,7 @@ function login(){
     global $twig,$id,$_SESSION;
     echo $twig->render('login.html.twig',[
         'id' => $id,
+        'sessionToken' => $_SESSION['token'],
         'session' => $_SESSION['idUser']
     ]);
 }
@@ -144,6 +152,7 @@ function register(){
     global $twig,$id,$_SESSION;
     echo $twig->render('register.html.twig',[
         'id' => $id,
+        'sessionToken' => $_SESSION['token'],
         'session' => $_SESSION['idUser']
     ]);
 }
@@ -161,6 +170,14 @@ function admin(){
 function confirmComment(){
     global $twig,$_SESSION,$admin;
     echo $twig->render('confirmComment.html.twig',[
+        'session' => $_SESSION['idUser'],
+        'admin' => $admin
+    ]);
+}
+
+function error(){
+    global $twig,$_SESSION,$admin;
+    echo $twig->render('error.html.twig',[
         'session' => $_SESSION['idUser'],
         'admin' => $admin
     ]);

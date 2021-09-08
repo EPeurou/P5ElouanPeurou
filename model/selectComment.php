@@ -3,7 +3,7 @@ require 'connect.php';
 
 $idPost = $_GET['id'];
 
-$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser` FROM comment WHERE idPost = :idPost AND validate = 1');
+$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM comment WHERE idPost = :idPost AND validate = 1');
 
 $req->execute(array(
     ':idPost' => $idPost

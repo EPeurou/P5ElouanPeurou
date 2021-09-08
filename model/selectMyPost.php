@@ -4,7 +4,7 @@ session_start();
 $id = $_SESSION['idUser'];
 
 
-$req=$bdd->prepare('SELECT `id`,`title`,`content`,`description`,`date`,`idUser`,`idCategory`,`author` FROM post WHERE idUser = :idUser  ORDER BY id DESC');
+$req=$bdd->prepare('SELECT `id`,`title`,`content`,`description`,`date`,`idUser`,`idCategory`,`author`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM post WHERE idUser = :idUser  ORDER BY id DESC');
 
 $req->execute(array(
     ':idUser' => $id

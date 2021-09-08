@@ -33,6 +33,7 @@
                         <div class="col-xs-12 col-sm-4">
                             <div class="form-group">
                                 <input class="form-input" type="text" placeholder="Auteur(e)" name="author" value="{{ authorPost }}" required="required" oninvalid="this.setCustomValidity('Un auteur est requis')" oninput="this.setCustomValidity('')">
+                                <input type="hidden" name="token" value="{{ sessionToken }}">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4">

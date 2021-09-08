@@ -34,7 +34,7 @@
                             <h1>{{ title }}</h1>
                             <h2 class="subheading">{{ descriptionPost }}</h2>
                             <span class="meta">
-                                Posté par {{ authorPost }} le {{ datePost }}
+                                Posté par {{ authorPost }} le {{ creationDate }}
                             </span>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                     {{ rowComment.pseudo }}
                                 </span>
                                 <span class="be-comment-time">
-                                    {{ rowComment.date }}
+                                    {{ rowComment.creationDate }}
                                 </span>
 
                             <p class="be-comment-text">

@@ -12,7 +12,7 @@
         {% endblock %}
     </head>
     <body>
-    {# SESSION{{ session }} #}
+    {# SESSION{{ sessionToken }} #}
         {% block nav %}
             {% include 'navbar.html.twig' %}
         {% endblock %}
@@ -40,6 +40,7 @@
                             <form action="contact.php" method="post">
                                 <div class="form-floating">
                                     <input class="form-control" id="name" name="name" type="text" placeholder="Votre nom..." value="{{ nameUser }}" required="required" oninvalid="this.setCustomValidity('Un nom est requis')" oninput="this.setCustomValidity('')"/>
+                                    <input type="hidden" name="token" value="{{ sessionToken }}">
                                     <label for="name">Nom</label>
                                 </div>
                                 <div class="form-floating">

@@ -1,55 +1,59 @@
 <?php
 
-require('controller.php');
-
+require 'controllers/msgController.php';
+require 'controllers/homeController.php';
+require 'controllers/loginRegisterController.php';
+require('controllers/adminController.php');
+require 'controllers/fluxController.php';
+require 'controllers/postController.php';
+$fluxController = new fluxController;
+$postController = new postController;
+$adminController = new adminController;
+$loginRegisterController = new loginRegisterController;
+$msgController = new msgController;
+$homeController = new homeController;
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'home') {
-        homepage();
+        $homeController->homepage();
     }
     elseif ($_GET['action'] == 'flux') {
-        flux();
-    }
-    elseif ($_GET['action'] == 'contact') {
-        contact();
-    }
-    elseif ($_GET['action'] == 'apropos') {
-        apropos();
+        $fluxController->flux();
     }
     elseif ($_GET['action'] == 'post') {
-        post();
+        $postController->post();
     }
     elseif ($_GET['action'] == 'confirm') {
-        confirm();
+        $msgController->confirm();
     }
     elseif ($_GET['action'] == 'newPost') {
-        newPost();
+        $postController->newPost();
     }
     elseif ($_GET['action'] == 'myPost') {
-        myPost();
+        $postController->myPost();
     }
     elseif ($_GET['action'] == 'postDelUp') {
-        postDelUp();
+        $postController->postDelUp();
     }
     elseif ($_GET['action'] == 'postUpdate') {
-        postUpdate();
+        $postController->postUpdate();
     }
     elseif ($_GET['action'] == 'login') {
-        login();
+        $loginRegisterController->login();
     }
     elseif ($_GET['action'] == 'register') {
-        register();
+        $loginRegisterController->register();
     }
     elseif ($_GET['action'] == 'admin') {
-        admin();
+        $adminController->admin();
     }
     elseif ($_GET['action'] == 'confirmComment') {
-        confirmComment();
+        $msgController->confirmComment();
     }
     elseif ($_GET['action'] == 'error') {
-        error();
+        $msgController->error();
     }
 }
 else {
-    homepage();
+    $homeController->homepage();
 }

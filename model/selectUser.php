@@ -1,6 +1,5 @@
 <?php
 require 'connect.php';
-header("location: https://elouanpeurou.tech/index.php?action=home");
 
 $token = $_POST['token'];
 
@@ -8,6 +7,7 @@ if ($token !== $_SESSION['token']) {
     header("location: https://elouanpeurou.tech/index.php?action=error");
     exit;
 }else{
+    header("location: https://elouanpeurou.tech/index.php?action=home");
     if(isset($_POST['email'])) {
         $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     }

@@ -1,28 +1,30 @@
 <?php
-require 'connect.php'; 
+require 'connect.php';  
+if (isset($_GET['id'])){
 
-$idPost = $_GET['id'];
+    $idPost = $_GET['id'];
 
-$req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM comment WHERE idPost = :idPost AND validate = 1');
+    $req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM comment WHERE idPost = :idPost AND validate = 1');
 
-$req->execute(array(
-    ':idPost' => $idPost
-));
+    $req->execute(array(
+        ':idPost' => $idPost
+    ));
 
-$dataComment=[];
+    $dataComment=[];
 
-while ($rowComment = $req->fetch(PDO::FETCH_ASSOC)){
+    while ($rowComment = $req->fetch(PDO::FETCH_ASSOC)){
 
-    $req1=$bdd->prepare("SELECT `pseudo` FROM user WHERE id = ? ");
+        $req1=$bdd->prepare("SELECT `pseudo` FROM user WHERE id = ? ");
 
-    $req1->execute(array($rowComment['idUser']));
+        $req1->execute(array($rowComment['idUser']));
 
-    $row1=$req1->fetch(PDO::FETCH_ASSOC);
+        $row1=$req1->fetch(PDO::FETCH_ASSOC);
 
-    $pseudo = $row1['pseudo'];
+        $pseudo = $row1['pseudo'];
 
-    $rowComment['pseudo'] = $pseudo;
+        $rowComment['pseudo'] = $pseudo;
 
-    $dataComment[] = $rowComment;
+        $dataComment[] = $rowComment;
 
+    }
 }

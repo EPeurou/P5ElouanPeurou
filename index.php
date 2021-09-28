@@ -20,44 +20,46 @@ $loginRegisterController = new loginRegisterController;
 $msgController = new msgController;
 $homeController = new homeController;
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'home') {
+$action = isset($_GET['action']) ? $_GET['action'] : "";
+
+if ($action != "") {
+    if ($action == 'home') {
         $homeController->homepage();
     }
-    elseif ($_GET['action'] == 'flux') {
+    elseif ($action == 'flux') {
         $fluxController->flux();
     }
-    elseif ($_GET['action'] == 'post') {
+    elseif ($action == 'post') {
         $postController->post();
     }
-    elseif ($_GET['action'] == 'confirm') {
+    elseif ($action == 'confirm') {
         $msgController->confirm();
     }
-    elseif ($_GET['action'] == 'newPost') {
+    elseif ($action == 'newPost') {
         $postController->newPost();
     }
-    elseif ($_GET['action'] == 'myPost') {
+    elseif ($action == 'myPost') {
         $postController->myPost();
     }
-    elseif ($_GET['action'] == 'postDelUp') {
+    elseif ($action == 'postDelUp') {
         $postController->postDelUp();
     }
-    elseif ($_GET['action'] == 'postUpdate') {
+    elseif ($action == 'postUpdate') {
         $postController->postUpdate();
     }
-    elseif ($_GET['action'] == 'login') {
+    elseif ($action == 'login') {
         $loginRegisterController->login();
     }
-    elseif ($_GET['action'] == 'register') {
+    elseif ($action == 'register') {
         $loginRegisterController->register();
     }
-    elseif ($_GET['action'] == 'admin') {
+    elseif ($action == 'admin') {
         $adminController->admin();
     }
-    elseif ($_GET['action'] == 'confirmComment') {
+    elseif ($action == 'confirmComment') {
         $msgController->confirmComment();
     }
-    elseif ($_GET['action'] == 'error') {
+    elseif ($action == 'error') {
         $msgController->error();
     }
     else {

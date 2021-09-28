@@ -20,7 +20,7 @@ $loginRegisterController = new loginRegisterController;
 $msgController = new msgController;
 $homeController = new homeController;
 
-$action = isset($_GET['action']) ? $_GET['action'] : "";
+$action = isset($_GET['action']) ? htmlentities($_GET['action'], ENT_QUOTES) : "";
 
 if ($action != "") {
     if ($action == 'home') {

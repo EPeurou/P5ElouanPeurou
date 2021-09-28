@@ -1,15 +1,16 @@
 <?php
 require 'connect.php';
 
-session_start();
-$id = $_SESSION['idUser'];
+if(isset($_SESSION['idUser'])){
 
-$req=$bdd->prepare("SELECT id,admin FROM user WHERE id = :idUser");
+    $id = $_SESSION['idUser'];
 
-$req->execute(array(
-    ':idUser' => $id
-));
+    $req=$bdd->prepare("SELECT id,admin FROM user WHERE id = :idUser");
 
-$userData = $req->fetch(PDO::FETCH_ASSOC);
-$admin = $userData['admin'];
-// echo $_SESSION['idUser'];
+    $req->execute(array(
+        ':idUser' => $id
+    ));
+
+    $userData = $req->fetch(PDO::FETCH_ASSOC);
+    $admin = $userData['admin'];
+}

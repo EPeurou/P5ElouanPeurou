@@ -1,6 +1,6 @@
 <?php 
 require 'connect.php';
-header("location: https://elouanpeurou.tech/index.php?action=admin");
+header("location: http://127.0.0.1/P5_01_Projet/index.php?action=admin");
 
 $id = $_POST['idCommentDel'];
 

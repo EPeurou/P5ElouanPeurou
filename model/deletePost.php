@@ -1,6 +1,6 @@
 <?php 
 require 'connect.php';
-header("location: https://elouanpeurou.tech/index.php?action=myPost");
+header("location: http://127.0.0.1/P5_01_Projet/index.php?action=myPost");
 
 $id=$_POST['iddel'];
 $post['idPost'] = $id;

@@ -1,16 +1,6 @@
 <?php
 require 'connect.php';
-<<<<<<< Updated upstream
-header("location: https://elouanpeurou.tech/index.php?action=login");
-session_start();
 
-$token = $_POST['token'];
-
-if ($token !== $_SESSION['token']) {
-    header("location: https://elouanpeurou.tech/index.php?action=error");
-    exit;
-}else{
-=======
 // session_start();
 // $token = $_POST['token'];
 
@@ -19,7 +9,6 @@ if ($token !== $_SESSION['token']) {
 //     exit;
 // }else{
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=login");
->>>>>>> Stashed changes
     if(isset($_POST['name'])) {
         $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     }

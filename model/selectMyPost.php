@@ -1,30 +1,32 @@
 <?php
 require 'connect.php';
 session_start();
-$id = $_SESSION['idUser'];
+if(isset($_SESSION['idUser'])){
 
+    $id = $_SESSION['idUser'];
 
-$req=$bdd->prepare('SELECT `id`,`title`,`content`,`description`,`date`,`idUser`,`idCategory`,`author`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM post WHERE idUser = :idUser  ORDER BY id DESC');
+    $req=$bdd->prepare('SELECT `id`,`title`,`content`,`description`,`date`,`idUser`,`idCategory`,`author`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM post WHERE idUser = :idUser  ORDER BY id DESC');
 
-$req->execute(array(
-    ':idUser' => $id
-));
+    $req->execute(array(
+        ':idUser' => $id
+    ));
 
-$dataMy=[];
+    $dataMy=[];
 
-while ($rowMy = $req->fetch(PDO::FETCH_ASSOC)){
+    while ($rowMy = $req->fetch(PDO::FETCH_ASSOC)){
 
-    $req2=$bdd->prepare("SELECT `name` FROM category WHERE id = ? ");
+        $req2=$bdd->prepare("SELECT `name` FROM category WHERE id = ? ");
 
-    $req2->execute(array($rowMy['idCategory']));
+        $req2->execute(array($rowMy['idCategory']));
 
-    $row2=$req2->fetch(PDO::FETCH_ASSOC);
+        $row2=$req2->fetch(PDO::FETCH_ASSOC);
 
-    $categoryNameMy = $row2['name'];
+        $categoryNameMy = $row2['name'];
 
-    $rowMy['category'] = $categoryNameMy;
-    $req2 = null;
+        $rowMy['category'] = $categoryNameMy;
+        $req2 = null;
 
-    $dataMy[] = $rowMy;
+        $dataMy[] = $rowMy;
 
+    }
 }

@@ -3,11 +3,11 @@ require 'connect.php';
 
 $token = $_POST['token'];
 
-if ($token !== $_SESSION['token']) {
-    header("location: https://elouanpeurou.tech/index.php?action=error");
+if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
     exit;
 }else{
-    header("location: https://elouanpeurou.tech/index.php?action=home");
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=home");
     if(isset($_POST['email'])) {
         $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     }

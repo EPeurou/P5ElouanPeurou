@@ -1,11 +1,11 @@
 <?php
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 session_start();
 
 $token = $_POST['token'];
 
 if ($token !== $_SESSION['token']) {
-    header("location: https://elouanpeurou.tech/index.php?action=error");
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
     exit;
 }else{
         if(isset($_POST)) {

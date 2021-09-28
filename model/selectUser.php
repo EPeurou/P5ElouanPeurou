@@ -39,7 +39,6 @@ if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
         session_start();
 
         $_SESSION['idUser'] = $id;
-        // echo $_SESSION['idUser'];
     }
 
     exit;

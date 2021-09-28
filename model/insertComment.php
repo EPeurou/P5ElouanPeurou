@@ -25,7 +25,5 @@ $msg = $req->execute(array(
     'et2'=> $post,
     'et3'=> $id
 ));
-// if (!$req->execute()) {
-//     print_r($req->errorInfo());
-// }
+
 exit;

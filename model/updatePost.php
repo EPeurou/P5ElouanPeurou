@@ -6,10 +6,10 @@ $id = $_SESSION['idUser'];
 $token = $_POST['token'];
 
 if ($token !== $_SESSION['token']) {
-    header("location: https://elouanpeurou.tech/index.php?action=error");
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
     exit;
 }else{
-    header("location: https://elouanpeurou.tech/index.php?action=myPost");
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=myPost");
     if(isset($_POST['idUp'])) {
         $idPost = filter_var($_POST['idUp'], FILTER_SANITIZE_STRING);
     }

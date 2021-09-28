@@ -1,8 +1,8 @@
 <?php
 require 'connect.php';
 
-if(!isset($_SESSION['idUser'])){
-    session_start();
+if(isset($_SESSION['idUser'])){
+
     $id = $_SESSION['idUser'];
 
 

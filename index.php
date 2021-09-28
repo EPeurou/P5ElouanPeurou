@@ -1,11 +1,28 @@
 <?php
+require 'model/selectPostDetails.php';
+require 'model/selectMyPost.php';
+require 'model/selectComment.php';
+require 'model/selectCommentAdmin.php';
+require 'model/selectUserContact.php';
+require 'model/selectAdmin.php';
+require 'model/selectCategory.php';
+require 'model/selectFlux.php';
+require 'controller.php';
+// function my_autoloader($class) {
+//     include 'model/' . $class . '.php';
+// }
 
-require 'controllers/msgController.php';
-require 'controllers/homeController.php';
-require 'controllers/loginRegisterController.php';
-require('controllers/adminController.php');
-require 'controllers/fluxController.php';
-require 'controllers/postController.php';
+// spl_autoload_register('my_autoloader');
+spl_autoload_register(function ($class){
+    require_once 'controllers/' . $class . '.php';
+    // require_once 'model/' . $class . '.php';
+});
+// require 'controllers/msgController.php';
+// require 'controllers/homeController.php';
+// require 'controllers/loginRegisterController.php';
+// require 'controllers/adminController.php';
+// require 'controllers/fluxController.php';
+// require 'controllers/postController.php';
 $fluxController = new fluxController;
 $postController = new postController;
 $adminController = new adminController;
@@ -51,6 +68,9 @@ if (isset($_GET['action'])) {
         $msgController->confirmComment();
     }
     elseif ($_GET['action'] == 'error') {
+        $msgController->error();
+    }
+    else {
         $msgController->error();
     }
 }

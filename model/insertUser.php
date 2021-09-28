@@ -1,12 +1,12 @@
 <?php
 require 'connect.php';
-header("location: https://elouanpeurou.tech/index.php?action=login");
+header("location: http://127.0.0.1/P5_01_Projet/index.php?action=login");
 session_start();
 
 $token = $_POST['token'];
 
 if ($token !== $_SESSION['token']) {
-    header("location: https://elouanpeurou.tech/index.php?action=error");
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
     exit;
 }else{
     if(isset($_POST['name'])) {

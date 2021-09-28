@@ -31,38 +31,40 @@
             </div>
         </header>
         <!-- Main Content-->
-        <main class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Contacter nous!</p>
-                        <div class="my-5">
-                            <form action="contact.php" method="post">
-                                <div class="form-floating">
-                                    <input class="form-control" id="name" name="name" type="text" placeholder="Votre nom..." value="{{ nameUser }}" required="required" oninvalid="this.setCustomValidity('Un nom est requis')" oninput="this.setCustomValidity('')"/>
-                                    <input type="hidden" name="token" value="{{ sessionToken }}">
-                                    <label for="name">Nom</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input class="form-control" id="firstname" name="firstname" type="text" placeholder="Votre prénom..." value="{{ firstName }}" required="required"  oninvalid="this.setCustomValidity('Un prénom est requis')" oninput="this.setCustomValidity('')"/>
-                                    <label for="firstname">Prénom</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input class="form-control" id="email" name="email" type="email" placeholder="Votre Email..." data-sb-validations="required,email" value="{{ email }}" required="required"  oninvalid="this.setCustomValidity('Une adresse Email est requise')" oninput="this.setCustomValidity('')"/>
-                                    <label for="email">Adresse Email</label>
-                                </div>
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 12rem" required="required" oninvalid="this.setCustomValidity('Un message est requis')" oninput="this.setCustomValidity('')"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                                <br/>
-                                <button class="btn btn-primary" type="submit">Envoyer</button>
-                            </form>
+        {% if session is not null %}
+            <main class="mb-4">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <p>Contacter nous!</p>
+                            <div class="my-5">
+                                <form action="contact.php" method="post">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="name" name="name" type="text" placeholder="Votre nom..." value="{{ nameUser }}" required="required" oninvalid="this.setCustomValidity('Un nom est requis')" oninput="this.setCustomValidity('')"/>
+                                        <input type="hidden" name="token" value="{{ sessionToken }}">
+                                        <label for="name">Nom</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="form-control" id="firstname" name="firstname" type="text" placeholder="Votre prénom..." value="{{ firstName }}" required="required"  oninvalid="this.setCustomValidity('Un prénom est requis')" oninput="this.setCustomValidity('')"/>
+                                        <label for="firstname">Prénom</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="form-control" id="email" name="email" type="email" placeholder="Votre Email..." data-sb-validations="required,email" value="{{ email }}" required="required"  oninvalid="this.setCustomValidity('Une adresse Email est requise')" oninput="this.setCustomValidity('')"/>
+                                        <label for="email">Adresse Email</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 12rem" required="required" oninvalid="this.setCustomValidity('Un message est requis')" oninput="this.setCustomValidity('')"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                    <br/>
+                                    <button class="btn btn-primary" type="submit">Envoyer</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        {% endif %}
         {% block footer %}   
             {% include "footer.html.twig" %}
         {% endblock %}

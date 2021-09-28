@@ -6,7 +6,7 @@ class adminController extends controller {
         global $twig,$_SESSION,$admin,$dataCommentAdmin,$rowCommentAdmin;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('admin.html.twig',[
-                'session' => $_SESSION['idUser'],
+                'session' => htmlentities($_SESSION['idUser'], ENT_QUOTES),
                 'dataComment' => $dataCommentAdmin,
                 'rowComment' => $rowCommentAdmin,
                 'admin' => $admin

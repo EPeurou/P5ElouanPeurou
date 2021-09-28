@@ -1,5 +1,6 @@
 <?php
 require 'connect.php';
+<<<<<<< Updated upstream
 header("location: https://elouanpeurou.tech/index.php?action=login");
 session_start();
 
@@ -9,6 +10,16 @@ if ($token !== $_SESSION['token']) {
     header("location: https://elouanpeurou.tech/index.php?action=error");
     exit;
 }else{
+=======
+// session_start();
+// $token = $_POST['token'];
+
+// if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
+//     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
+//     exit;
+// }else{
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=login");
+>>>>>>> Stashed changes
     if(isset($_POST['name'])) {
         $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     }
@@ -26,7 +37,7 @@ if ($token !== $_SESSION['token']) {
     }
 
     if(isset($_POST['password'])) {
-        $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
     }
 
     if(isset($_POST['pseudo'])) {
@@ -39,9 +50,11 @@ if ($token !== $_SESSION['token']) {
         'et2'=> $firstName,
         'et3'=> $civility,
         'et4'=> $email,
-        'et5'=> $password,
+        'et5'=> $hash,
         'et6'=> $pseudo
     ));
-
+    // if (!$req->execute()) {
+    //         print_r($req->errorInfo());
+    //     }
     exit;
-}
+// }

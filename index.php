@@ -19,7 +19,7 @@ $adminController = new adminController;
 $loginRegisterController = new loginRegisterController;
 $msgController = new msgController;
 $homeController = new homeController;
-$monget = filter_var_array($_GET, FILTER_DEFAULT);
+$monget = filter_input_array(INPUT_GET, FILTER_DEFAULT);
 
 $action = isset($monget['action']) ? htmlentities($monget['action'], ENT_QUOTES) : "";
 

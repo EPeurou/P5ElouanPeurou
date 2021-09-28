@@ -19,8 +19,9 @@ $adminController = new adminController;
 $loginRegisterController = new loginRegisterController;
 $msgController = new msgController;
 $homeController = new homeController;
+$monget = filter_var_array($_GET, FILTER_DEFAULT);
 
-$action = isset($_GET['action']) ? htmlentities($_GET['action'], ENT_QUOTES) : "";
+$action = isset($monget['action']) ? htmlentities($monget['action'], ENT_QUOTES) : "";
 
 if ($action != "") {
     if ($action == 'home') {

@@ -3,6 +3,13 @@
   - [Dépendances](#dépendances)
   - [Import de la base de données](#import-de-la-base-de-données)
   - [Modification du code nécessaire](#modification-du-code-nécessaire)
+  - [Identifiants de connexion](#identifiants-de-connexion)
+    - [Compte administrateur:](#compte-administrateur)
+      - [email: admin@gmail.com](#email-admingmailcom)
+      - [mot de passe: admin](#mot-de-passe-admin)
+    - [compte utilisateur standard:](#compte-utilisateur-standard)
+      - [email: nonAdmin@gmail.com](#email-nonadmingmailcom)
+      - [mot de passe: nonAdmin](#mot-de-passe-nonadmin)
 
 
 ## Instruction d'installation du projet
@@ -21,7 +28,6 @@ Pour le bon fonctionnement du projet il faudra installer Composer: https://getco
 
 Pour récupérer la base de données il faudra importer le fichier 'bdd.sql' (à la racine du projet), dans votre système de base de données afin de récupérer les données de démo du projet.
 
-
 ### Modification du code nécessaire
 
 Quelques modifications sont requises pour le bon fonctionnement de l'application.
@@ -35,3 +41,15 @@ Dans le fichier 'connect.php' situé dans le dossier 'model' du projet vous devr
     }
 
 Le projet est maintenant fonctionnel.
+
+### Identifiants de connexion
+
+Voici des identifiants qui vous permettront de tester le blog.
+
+#### Compte administrateur: 
+##### email: admin@gmail.com
+##### mot de passe: admin
+
+#### compte utilisateur standard:
+##### email: nonAdmin@gmail.com
+##### mot de passe: nonAdmin

@@ -5,7 +5,7 @@ class loginRegisterController extends controller {
 
     public function login(){
         global $twig,$id,$_SESSION;
-        return $this->twig->render('login.html.twig',[
+        echo $this->twig->render('login.html.twig',[
             // 'id' => $id,
             // 'sessionToken' => $_SESSION['token'],
             // 'session' => $_SESSION['idUser']
@@ -14,7 +14,7 @@ class loginRegisterController extends controller {
 
     public function register(){
         global $twig,$id,$_SESSION;
-        return $this->twig->render('register.html.twig',[
+        echo $this->twig->render('register.html.twig',[
             // 'id' => $id,
             // 'sessionToken' => $_SESSION['token'],
             // 'session' => $_SESSION['idUser']

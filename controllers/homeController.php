@@ -8,10 +8,10 @@ class homeController extends controller {
             echo $this->twig->render('index.html.twig',[
                 'sessionToken' => $_SESSION['token'],
                 'session' => $_SESSION['idUser'],
-                'nameUser' => addslashes($nameUser),
-                'firstName' => addslashes($firstNameUser),
-                'email' => addslashes($emailUser),
-                'admin' =>addslashes($admin)
+                'nameUser' => filter_var($nameUser, FILTER_DEFAULT),
+                'firstName' => filter_var($firstNameUser, FILTER_DEFAULT),
+                'email' => filter_var($emailUser, FILTER_DEFAULT),
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('index.html.twig');

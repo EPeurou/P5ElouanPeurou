@@ -4,7 +4,7 @@ header("location: http://127.0.0.1/P5_01_Projet/index.php?action=flux");
 session_start();
 $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 $id = $_SESSION['idUser'];
-$token = $_POST['token'];
+$token = $post['token'];
 
 if ($token !== $_SESSION['token']) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
@@ -40,4 +40,3 @@ $msg = $req->execute(array(
     'et6' => $author
 ));
 
-exit;

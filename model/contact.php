@@ -1,44 +1,43 @@
 <?php
 require_once '../vendor/autoload.php';
 session_start();
-
-$token = $_POST['token'];
+$post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+$token = $post['token'];
 
 if ($token !== $_SESSION['token']) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
-    exit;
 }else{
-        if(isset($_POST)) {
+        if(isset($post)) {
             $name = "";
             $firstname = "";
             $email = "";
             $msg = "";
             $email_body = "<div>";
             
-            if(isset($_POST['name'])) {
-                $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+            if(isset($post['name'])) {
+                $name = filter_var($post['name'], FILTER_SANITIZE_STRING);
                 $email_body .= "<div>
                                 <label><b>Name:</b></label>&nbsp;<span>".$name."</span>
                                 </div>";
             }
 
-            if(isset($_POST['firstname'])) {
-                $name = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
+            if(isset($post['firstname'])) {
+                $name = filter_var($post['firstname'], FILTER_SANITIZE_STRING);
                 $email_body .= "<div>
                                 <label><b>firstName:</b></label>&nbsp;<span>".$firstname."</span>
                                 </div>";
             }
         
-            if(isset($_POST['email'])) {
-                $email = str_replace(array("\r", "\n", "%0a", "%0d"), '', $_POST['email']);
+            if(isset($post['email'])) {
+                $email = str_replace(array("\r", "\n", "%0a", "%0d"), '', $post['email']);
                 $email = filter_var($email, FILTER_VALIDATE_EMAIL);
                 $email_body .= "<div>
                                 <label><b>Visitor Email:</b></label>&nbsp;<span>".$email."</span>
                                 </div>";
             }
             
-            if(isset($_POST['message'])) {
-                $msg = htmlspecialchars($_POST['message']);
+            if(isset($post['message'])) {
+                $msg = htmlspecialchars($post['message']);
                 $email_body .= "<div>
                                 <label><b>Visitor Message:</b></label>
                                 <div>".$msg."</div>

@@ -1,19 +1,19 @@
 <?php
 require 'connect.php';
-
-$token = $_POST['token'];
+$post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+$token = $post['token'];
 
 if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
     exit;
 }else{
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=home");
-    if(isset($_POST['email'])) {
-        $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    if(isset($post['email'])) {
+        $postEmail = filter_var($post['email'], FILTER_VALIDATE_EMAIL);
     }
 
-    if(isset($_POST['password'])) {
-        $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+    if(isset($post['password'])) {
+        $password = filter_var($post['password'], FILTER_SANITIZE_STRING);
     }
 
     $req=$bdd->prepare("SELECT password FROM user WHERE email = :email");

@@ -3,19 +3,20 @@ require 'connect.php';
 header("location: http://127.0.0.1/P5_01_Projet/index.php?action=flux");
 
 session_start();
+$mypost = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 $id = $_SESSION['idUser'];
-$token = $_POST['token'];
+$token = $mypost['token'];
 
 if ($token !== $_SESSION['token']) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
     exit;
 }else{
-    if(isset($_POST['comment'])) {
-        $Comment = filter_var($_POST['comment'], FILTER_UNSAFE_RAW);
+    if(isset($mypost['comment'])) {
+        $Comment = filter_var($mypost['comment'], FILTER_UNSAFE_RAW);
     }
 
-    if(isset($_POST['idPost'])) {
-        $post = filter_var($_POST['idPost'], FILTER_UNSAFE_RAW);
+    if(isset($mypost['idPost'])) {
+        $post = filter_var($mypost['idPost'], FILTER_UNSAFE_RAW);
     }
 }
 
@@ -26,4 +27,3 @@ $msg = $req->execute(array(
     'et3'=> $id
 ));
 
-exit;

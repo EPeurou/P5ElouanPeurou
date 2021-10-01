@@ -1,7 +1,7 @@
 <?php
 
 class homeController extends controller {
-
+    
     public function homepage(){
         global $twig,$_SESSION,$nameUser,$firstNameUser,$emailUser,$admin;
         if(isset($_SESSION['idUser'])){
@@ -16,6 +16,5 @@ class homeController extends controller {
         } else {
             echo $this->twig->render('index.html.twig');
         }
-    }
-        
+    }   
 }

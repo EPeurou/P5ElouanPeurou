@@ -12,7 +12,6 @@ class controller
         $loader = new FilesystemLoader(__DIR__ . '/templates');
         $this->twig = new Environment($loader);
         if (!isset($_SESSION['token'])){
-            session_start();
             $_SESSION['token'] = md5(uniqid(mt_rand(), true));
         }
     }

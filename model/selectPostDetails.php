@@ -1,7 +1,8 @@
 <?php
 require 'connect.php';
-if (isset($_GET['id'])){
-    $idPostCurrent = $_GET['id'];
+$get = filter_input_array(INPUT_GET, FILTER_DEFAULT);
+if (isset($get['id'])){
+    $idPostCurrent = $get['id'];
 
     $req=$bdd->prepare('SELECT `id`,`title`, `content`, `description`,`date`, `idUser`, `idCategory`,`author`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM post WHERE id = :idPost');
 

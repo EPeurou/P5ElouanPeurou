@@ -1,8 +1,9 @@
 <?php
-require 'connect.php';  
-if (isset($_GET['id'])){
+require 'connect.php'; 
+$get = filter_input_array(INPUT_GET, FILTER_DEFAULT);
+if (isset($get['id'])){
 
-    $idPost = $_GET['id'];
+    $idPost = $get['id'];
 
     $req=$bdd->prepare('SELECT `id`,`date`, `content`, `idPost`,`idUser`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM comment WHERE idPost = :idPost AND validate = 1');
 

@@ -8,10 +8,10 @@ class homeController extends controller {
             echo $this->twig->render('index.html.twig',[
                 'sessionToken' => $_SESSION['token'],
                 'session' => $_SESSION['idUser'],
-                'nameUser' => htmlspecialchars($nameUser),
-                'firstName' => htmlspecialchars($firstNameUser),
-                'email' => htmlspecialchars($emailUser),
-                'admin' => htmlspecialchars($admin)
+                'nameUser' => addslashes($nameUser),
+                'firstName' => addslashes($firstNameUser),
+                'email' => addslashes($emailUser),
+                'admin' =>addslashes($admin)
             ]);
         } else {
             echo $this->twig->render('index.html.twig');

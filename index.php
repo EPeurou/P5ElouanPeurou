@@ -20,7 +20,6 @@ $loginRegisterController = new loginRegisterController;
 $msgController = new msgController;
 $homeController = new homeController;
 
-// TODO: generalize next to lines
 $get = filter_input_array(INPUT_GET, FILTER_DEFAULT);
 $action = isset($get['action']) ? htmlentities($get['action'], ENT_QUOTES) : "";
 

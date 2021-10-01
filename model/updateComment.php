@@ -10,7 +10,3 @@ $req=$bdd->prepare('UPDATE comment SET validate = 1 WHERE id = :idComment');
 $req->execute(array(
         ':idComment'=>$idComment
 ));
-        
-        
-exit;
-?>

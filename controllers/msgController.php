@@ -7,7 +7,7 @@ class msgController extends controller {
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('confirm.html.twig',[
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('index.html.twig');
@@ -19,11 +19,11 @@ class msgController extends controller {
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('error.html.twig',[
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('error.html.twig',[
-                'admin' => $admin
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         }
     }
@@ -33,7 +33,7 @@ class msgController extends controller {
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('confirmComment.html.twig',[
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('index.html.twig');

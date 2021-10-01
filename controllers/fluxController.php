@@ -6,16 +6,16 @@ class fluxController extends controller {
         global $twig,$data,$row,$_SESSION,$admin;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('flux.html.twig',[
-                    'data' => $data,
-                    'row' => $row,
+                    'data' => array_filter($data),
+                    'row' => filter_var($row, FILTER_DEFAULT),
                     'session' => $_SESSION['idUser'],
-                    'admin' => $admin
+                    'admin' => filter_var($admin, FILTER_DEFAULT)
                 ]);
         } else {
             echo $this->twig->render('flux.html.twig',[
-                'data' => $data,
-                'row' => $row,
-                'admin' => $admin
+                'data' => array_filter($data),
+                'row' => filter_var($row, FILTER_DEFAULT),
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         }
     }

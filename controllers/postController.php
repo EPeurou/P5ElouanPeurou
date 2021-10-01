@@ -7,36 +7,36 @@ class postController extends controller {
         $pseudoPost,$idPost,$authorPost,$dataComment,$rowComment,$_SESSION,$admin,$creationDate;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('post.html.twig',[
-                'title' => $titlePost,
-                'contentPost' => $contentPost,
-                'descriptionPost' => $descriptionPost,
-                'datePost' => $datePost,
-                'categoryPost' => $categoryPost,
-                'authorPost' => $authorPost,
-                'pseudoPost' => $pseudoPost,
-                'idPost' => $idPost,
-                'dataComment' => $dataComment,
-                'rowComment' => $rowComment,
+                'title' => filter_var($titlePost, FILTER_DEFAULT),
+                'contentPost' => filter_var($contentPost, FILTER_DEFAULT),
+                'descriptionPost' => filter_var($descriptionPost, FILTER_DEFAULT),
+                'datePost' => filter_var($datePost, FILTER_DEFAULT),
+                'categoryPost' => filter_var($categoryPost, FILTER_DEFAULT),
+                'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
+                'pseudoPost' => filter_var($pseudoPost, FILTER_DEFAULT),
+                'idPost' => filter_var($idPost, FILTER_DEFAULT),
+                'dataComment' => array_filter($dataComment),
+                'rowComment' => filter_var($rowComment, FILTER_DEFAULT),
                 'sessionToken' => $_SESSION['token'],
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin,
-                'creationDate' => $creationDate
+                'admin' => filter_var($admin, FILTER_DEFAULT),
+                'creationDate' => filter_var($creationDate, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('post.html.twig',[
-                'title' => $titlePost,
-                'contentPost' => $contentPost,
-                'descriptionPost' => $descriptionPost,
-                'datePost' => $datePost,
-                'categoryPost' => $categoryPost,
-                'authorPost' => $authorPost,
-                'pseudoPost' => $pseudoPost,
-                'idPost' => $idPost,
-                'dataComment' => $dataComment,
-                'rowComment' => $rowComment,
+                'title' => filter_var($titlePost, FILTER_DEFAULT),
+                'contentPost' => filter_var($contentPost, FILTER_DEFAULT),
+                'descriptionPost' => filter_var($descriptionPost, FILTER_DEFAULT),
+                'datePost' => filter_var($datePost, FILTER_DEFAULT),
+                'categoryPost' => filter_var($categoryPost, FILTER_DEFAULT),
+                'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
+                'pseudoPost' => filter_var($pseudoPost, FILTER_DEFAULT),
+                'idPost' => filter_var($idPost, FILTER_DEFAULT),
+                'dataComment' => array_filter($dataComment),
+                'rowComment' => filter_var($rowComment, FILTER_DEFAULT),
                 'sessionToken' => $_SESSION['token'],
-                'admin' => $admin,
-                'creationDate' => $creationDate
+                'admin' => filter_var($admin, FILTER_DEFAULT),
+                'creationDate' => filter_var($creationDate, FILTER_DEFAULT)
             ]);
         }
     }
@@ -45,11 +45,11 @@ class postController extends controller {
         global $twig,$rowCategory,$varCategory,$categoryName,$_SESSION,$admin;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('newPost.html.twig',[
-                'categoryName' => $categoryName,
-                'varCategory' => $varCategory,
+                'categoryName' => filter_var($categoryName, FILTER_DEFAULT),
+                'varCategory' => array_filter($varCategory),
                 'sessionToken' => $_SESSION['token'],
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('index.html.twig');
@@ -60,10 +60,10 @@ class postController extends controller {
         global $twig,$dataMy,$rowMy,$_SESSION,$admin;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('myPost.html.twig', [
-                'data' => $dataMy,
-                'row' => $rowMy,
+                'data' => array_filter($dataMy),
+                'row' => filter_var($rowMy, FILTER_DEFAULT),
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin
+                'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('index.html.twig');
@@ -75,21 +75,21 @@ class postController extends controller {
         $pseudoPost,$idPost,$dataComment,$rowComment,$data,$row,$_SESSION,$admin,$authorPost,$creationDate;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('postDeleteUpdate.html.twig', [
-                'title' => $titlePost,
-                'contentPost' => $contentPost,
-                'descriptionPost' => $descriptionPost,
-                'datePost' => $datePost,
-                'categoryPost' => $categoryPost,
-                'pseudoPost' => $pseudoPost,
-                'idPost' => $idPost,
-                'authorPost' => $authorPost,
-                'dataComment' => $dataComment,
-                'rowComment' => $rowComment,
-                'data' => $data,
-                'row' => $row,
+                'title' => filter_var($titlePost, FILTER_DEFAULT),
+                'contentPost' => filter_var($contentPost, FILTER_DEFAULT),
+                'descriptionPost' => filter_var($descriptionPost, FILTER_DEFAULT),
+                'idPost' => filter_var($idPost, FILTER_DEFAULT),
+                'datePost' => filter_var($datePost, FILTER_DEFAULT),
+                'categoryPost' => filter_var($categoryPost, FILTER_DEFAULT),
+                'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
+                'pseudoPost' => filter_var($pseudoPost, FILTER_DEFAULT),
+                'dataComment' => array_filter($dataComment),
+                'rowComment' => filter_var($rowComment, FILTER_DEFAULT),
+                'data' => array_filter($data),
+                'row' => filter_var($row, FILTER_DEFAULT),
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin,
-                'creationDate' => $creationDate
+                'admin' => filter_var($admin, FILTER_DEFAULT),
+                'creationDate' => filter_var($creationDate, FILTER_DEFAULT)
             ]);
         } else {
             echo $this->twig->render('index.html.twig');
@@ -100,16 +100,16 @@ class postController extends controller {
         global $twig,$rowCategory,$varCategory,$categoryName,$idPost,$titlePost,$contentPost,$descriptionPost,$_SESSION,$admin,$authorPost;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('postUpdate.html.twig',[
-                'categoryName' => $categoryName,
-                'varCategory' => $varCategory,
-                'idPost' => $idPost,
-                'title' => $titlePost,
+                'categoryName' => filter_var($categoryName, FILTER_DEFAULT),
+                'varCategory' => array_filter($varCategory),
+                'idPost' => filter_var($idPost, FILTER_DEFAULT),
+                'title' => filter_var($titlePost, FILTER_DEFAULT),
                 'sessionToken' => $_SESSION['token'],
-                'contentPost' => $contentPost,
-                'descriptionPost' => $descriptionPost,
-                'authorPost' => $authorPost,
+                'contentPost' => filter_var($contentPost, FILTER_DEFAULT),
+                'descriptionPost' => filter_var($descriptionPost, FILTER_DEFAULT),
+                'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
                 'session' => $_SESSION['idUser'],
-                'admin' => $admin
+                'admin' => filter_var($admin, FILTER_DEFAULT),
             ]);
         } else {
             echo $this->twig->render('index.html.twig');

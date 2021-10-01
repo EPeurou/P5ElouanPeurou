@@ -38,7 +38,7 @@ if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
         $id = $userData['id'];
         session_start();
 
-        $_SESSION['idUser'] = $id;
+        $session['idUser'] = $id;
     }
 
     exit;

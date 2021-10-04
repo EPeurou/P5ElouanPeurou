@@ -1,16 +1,3 @@
-  - [Instruction d'installation du projet](#instruction-dinstallation-du-projet)
-    - [Installation sur un serveur local](#installation-sur-un-serveur-local)
-    - [Dépendances](#dépendances)
-    - [Import de la base de données](#import-de-la-base-de-données)
-    - [Modification du code nécessaire](#modification-du-code-nécessaire)
-    - [Identifiants de connexion](#identifiants-de-connexion)
-    - [Compte administrateur:](#compte-administrateur)
-      - [email: admin@gmail.com](#email-admingmailcom)
-      - [mot de passe: admin](#mot-de-passe-admin)
-    - [compte utilisateur standard:](#compte-utilisateur-standard)
-      - [email: nonAdmin@gmail.com](#email-nonadmingmailcom)
-      - [mot de passe: nonAdmin](#mot-de-passe-nonadmin)
-
 
 ## Instruction d'installation du projet
 

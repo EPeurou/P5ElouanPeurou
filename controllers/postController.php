@@ -3,7 +3,7 @@
 class postController extends controller {
 
     public function post(){
-        global $twig,$titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
+        global $titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
         $pseudoPost,$idPost,$authorPost,$dataComment,$rowComment,$_SESSION,$admin,$creationDate;
         if(isset($_SESSION['idUser'])){
             print_r ($this->twig->render('post.html.twig',[
@@ -42,7 +42,7 @@ class postController extends controller {
     }
 
     public function newPost(){
-        global $twig,$rowCategory,$varCategory,$categoryName,$_SESSION,$admin;
+        global $rowCategory,$varCategory,$categoryName,$_SESSION,$admin;
         if(isset($_SESSION['idUser'])){
             print_r ($this->twig->render('newPost.html.twig',[
                 'categoryName' => filter_var($categoryName, FILTER_DEFAULT),
@@ -57,7 +57,7 @@ class postController extends controller {
     }
 
     public function myPost(){
-        global $twig,$dataMy,$rowMy,$_SESSION,$admin;
+        global $dataMy,$rowMy,$_SESSION,$admin;
         if(isset($_SESSION['idUser'])){
             print_r ($this->twig->render('myPost.html.twig', [
                 'data' => array_filter($dataMy),
@@ -71,7 +71,7 @@ class postController extends controller {
     }
 
     public function postDelUp(){
-        global $twig,$titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
+        global $titlePost,$contentPost,$descriptionPost,$datePost,$categoryPost,
         $pseudoPost,$idPost,$dataComment,$rowComment,$data,$row,$_SESSION,$admin,$authorPost,$creationDate;
         if(isset($_SESSION['idUser'])){
             print_r ($this->twig->render('postDeleteUpdate.html.twig', [
@@ -97,7 +97,7 @@ class postController extends controller {
     }
 
     public function postUpdate(){
-        global $twig,$rowCategory,$varCategory,$categoryName,$idPost,$titlePost,$contentPost,$descriptionPost,$_SESSION,$admin,$authorPost;
+        global $rowCategory,$varCategory,$categoryName,$idPost,$titlePost,$contentPost,$descriptionPost,$_SESSION,$admin,$authorPost;
         if(isset($_SESSION['idUser'])){
             print_r ($this->twig->render('postUpdate.html.twig',[
                 'categoryName' => filter_var($categoryName, FILTER_DEFAULT),

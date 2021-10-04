@@ -3,10 +3,10 @@
 class msgController extends controller {
 
     public function confirm(){
-        global $_SESSION,$admin;
-        if(isset($_SESSION['idUser'])){
+        global $id,$admin;
+        if(isset($id)){
             print_r ( $this->twig->render('confirm.html.twig',[
-                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
+                'session' => filter_var($id, FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT)
             ]));
         } else {
@@ -15,10 +15,10 @@ class msgController extends controller {
     }
 
     public function error(){
-        global $_SESSION,$admin;
-        if(isset($_SESSION['idUser'])){
+        global $id,$admin;
+        if(isset($id)){
             print_r ($this->twig->render('error.html.twig',[
-                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
+                'session' => filter_var($id, FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT)
             ]));
         } else {
@@ -29,10 +29,10 @@ class msgController extends controller {
     }
 
     public function confirmComment(){
-        global $_SESSION,$admin;
-        if(isset($_SESSION['idUser'])){
+        global $id,$admin;
+        if(isset($id)){
             print_r ($this->twig->render('confirmComment.html.twig',[
-                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
+                'session' => filter_var($id, FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT)
             ]));
         } else {

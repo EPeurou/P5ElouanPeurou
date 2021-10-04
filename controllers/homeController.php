@@ -3,11 +3,11 @@
 class homeController extends controller {
 
     public function homepage(){
-        global $_SESSION,$nameUser,$firstNameUser,$emailUser,$admin;
-        if(isset($_SESSION['idUser'])){
+        global $id,$_SESSION,$nameUser,$firstNameUser,$emailUser,$admin;
+        if(isset($id)){
             print_r ($this->twig->render('index.html.twig',[
                 'sessionToken' => filter_var($_SESSION['token'], FILTER_DEFAULT),
-                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
+                'session' => filter_var($id, FILTER_DEFAULT),
                 'nameUser' => filter_var($nameUser, FILTER_DEFAULT),
                 'firstName' => filter_var($firstNameUser, FILTER_DEFAULT),
                 'email' => filter_var($emailUser, FILTER_DEFAULT),

@@ -7,6 +7,7 @@ require 'model/selectUserContact.php';
 require 'model/selectAdmin.php';
 require 'model/selectCategory.php';
 require 'model/selectFlux.php';
+// require 'model/contact.php';
 require 'controller.php';
 
 spl_autoload_register(function ($class){

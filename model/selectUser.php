@@ -2,6 +2,7 @@
 require 'connect.php';
 $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 $token = $post['token'];
+// session::put($token);
 
 if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
@@ -38,5 +39,6 @@ if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
         session_start();
 
         $_SESSION['idUser'] = $id;
+        session::put($id);
     }
 }

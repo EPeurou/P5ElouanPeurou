@@ -8,7 +8,7 @@ class fluxController extends controller {
             echo $this->twig->render('flux.html.twig',[
                     'data' => array_filter($data),
                     'row' => filter_var($row, FILTER_DEFAULT),
-                    'session' => $_SESSION['idUser'],
+                    'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                     'admin' => filter_var($admin, FILTER_DEFAULT)
                 ]);
         } else {

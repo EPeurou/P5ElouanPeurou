@@ -1,6 +1,6 @@
 <?php
 require 'connect.php';
-header("location: http://127.0.0.1/P5_01_Projet/index.php?action=flux");
+header("location: http://127.0.0.1/P5_01_Projet/index.php?action=confirmComment");
 
 session_start();
 $mypost = filter_input_array(INPUT_POST, FILTER_DEFAULT);

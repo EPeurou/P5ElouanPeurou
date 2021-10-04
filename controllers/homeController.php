@@ -6,8 +6,8 @@ class homeController extends controller {
         global $twig,$_SESSION,$nameUser,$firstNameUser,$emailUser,$admin;
         if(isset($_SESSION['idUser'])){
             echo $this->twig->render('index.html.twig',[
-                'sessionToken' => $_SESSION['token'],
-                'session' => $_SESSION['idUser'],
+                'sessionToken' => filter_var($_SESSION['token'], FILTER_DEFAULT),
+                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                 'nameUser' => filter_var($nameUser, FILTER_DEFAULT),
                 'firstName' => filter_var($firstNameUser, FILTER_DEFAULT),
                 'email' => filter_var($emailUser, FILTER_DEFAULT),

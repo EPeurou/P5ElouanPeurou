@@ -15,7 +15,7 @@ class postController extends controller {
                 'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
                 'pseudoPost' => filter_var($pseudoPost, FILTER_DEFAULT),
                 'idPost' => filter_var($idPost, FILTER_DEFAULT),
-                'dataComment' => array_filter($dataComment),
+                'dataComment' => array_filter($dataComment, ARRAY_FILTER_USE_BOTH),
                 'rowComment' => filter_var($rowComment, FILTER_DEFAULT),
                 'sessionToken' => $_SESSION['token'],
                 'session' => $_SESSION['idUser'],

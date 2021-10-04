@@ -12,7 +12,7 @@ class adminController extends controller {
                 'admin' => filter_var($admin, FILTER_DEFAULT)
             ]));
         } else {
-            return $this->twig->render('index.html.twig');
+            print_r ($this->twig->render('index.html.twig'));
         }
     }
 }

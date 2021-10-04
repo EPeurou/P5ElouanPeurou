@@ -9,7 +9,6 @@ $token = $mypost['token'];
 
 if ($token !== $_SESSION['token']) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
-    exit;
 }else{
     if(isset($mypost['comment'])) {
         $Comment = filter_var($mypost['comment'], FILTER_UNSAFE_RAW);

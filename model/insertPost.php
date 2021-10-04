@@ -8,7 +8,6 @@ $token = $post['token'];
 
 if ($token !== $_SESSION['token']) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
-    exit;
 }else{
     if(isset($post['author'])) {
         $author = filter_var($post['author'],FILTER_UNSAFE_RAW);

@@ -7,7 +7,6 @@ $token = $post['token'];
 
 if ($token !== $_SESSION['token']) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
-    exit;
 }else{
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=myPost");
     if(isset($post['idUp'])) {

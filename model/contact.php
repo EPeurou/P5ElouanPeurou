@@ -62,9 +62,6 @@ if ($token !== $_SESSION['token']) {
             
             if($result) {
                 header("location: index.php?action=confirm");
-                exit;
-            } else {
-                echo"We are sorry but the email did not go through";
             }
             
         }

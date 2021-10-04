@@ -5,7 +5,6 @@ $token = $post['token'];
 
 if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
-    exit;
 }else{
     header("location: http://127.0.0.1/P5_01_Projet/index.php?action=home");
     if(isset($post['email'])) {

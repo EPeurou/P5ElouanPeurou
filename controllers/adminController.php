@@ -5,14 +5,14 @@ class adminController extends controller {
     public function admin(){
         global $twig,$_SESSION,$admin,$dataCommentAdmin,$rowCommentAdmin;
         if(isset($_SESSION['idUser'])){
-            echo $this->twig->render('admin.html.twig',[
-                'session' => $_SESSION['idUser'],
+            print_r ($this->twig->render('admin.html.twig',[
+                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                 'dataComment' => array_filter($dataCommentAdmin),
                 'rowComment' => filter_var($rowCommentAdmin, FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT)
-            ]);
+            ]));
         } else {
-            echo $this->twig->render('index.html.twig');
+            return $this->twig->render('index.html.twig');
         }
     }
 }

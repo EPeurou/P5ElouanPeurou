@@ -15,10 +15,10 @@ class postController extends controller {
                 'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
                 'pseudoPost' => filter_var($pseudoPost, FILTER_DEFAULT),
                 'idPost' => filter_var($idPost, FILTER_DEFAULT),
-                'dataComment' => filter_var($dataComment, FILTER_DEFAULT),
+                'dataComment' => $dataComment,
                 'rowComment' => filter_var($rowComment, FILTER_DEFAULT),
                 'sessionToken' => filter_var($_SESSION['token'], FILTER_DEFAULT),
-                'session' => $_SESSION['idUser'],
+                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT),
                 'creationDate' => filter_var($creationDate, FILTER_DEFAULT)
             ]);
@@ -32,9 +32,9 @@ class postController extends controller {
                 'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
                 'pseudoPost' => filter_var($pseudoPost, FILTER_DEFAULT),
                 'idPost' => filter_var($idPost, FILTER_DEFAULT),
-                'dataComment' => array_filter($dataComment),
+                'dataComment' => $dataComment,
                 'rowComment' => filter_var($rowComment, FILTER_DEFAULT),
-                'sessionToken' => $_SESSION['token'],
+                'sessionToken' => filter_var($_SESSION['token'], FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT),
                 'creationDate' => filter_var($creationDate, FILTER_DEFAULT)
             ]);
@@ -47,8 +47,8 @@ class postController extends controller {
             echo $this->twig->render('newPost.html.twig',[
                 'categoryName' => filter_var($categoryName, FILTER_DEFAULT),
                 'varCategory' => array_filter($varCategory),
-                'sessionToken' => $_SESSION['token'],
-                'session' => $_SESSION['idUser'],
+                'sessionToken' => filter_var($_SESSION['token'], FILTER_DEFAULT),
+                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
@@ -62,7 +62,7 @@ class postController extends controller {
             echo $this->twig->render('myPost.html.twig', [
                 'data' => array_filter($dataMy),
                 'row' => filter_var($rowMy, FILTER_DEFAULT),
-                'session' => $_SESSION['idUser'],
+                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT)
             ]);
         } else {
@@ -87,7 +87,7 @@ class postController extends controller {
                 'rowComment' => filter_var($rowComment, FILTER_DEFAULT),
                 'data' => array_filter($data),
                 'row' => filter_var($row, FILTER_DEFAULT),
-                'session' => $_SESSION['idUser'],
+                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT),
                 'creationDate' => filter_var($creationDate, FILTER_DEFAULT)
             ]);
@@ -104,11 +104,11 @@ class postController extends controller {
                 'varCategory' => array_filter($varCategory),
                 'idPost' => filter_var($idPost, FILTER_DEFAULT),
                 'title' => filter_var($titlePost, FILTER_DEFAULT),
-                'sessionToken' => $_SESSION['token'],
+                'sessionToken' => filter_var($_SESSION['token'], FILTER_DEFAULT),
                 'contentPost' => filter_var($contentPost, FILTER_DEFAULT),
                 'descriptionPost' => filter_var($descriptionPost, FILTER_DEFAULT),
                 'authorPost' => filter_var($authorPost, FILTER_DEFAULT),
-                'session' => $_SESSION['idUser'],
+                'session' => filter_var($_SESSION['idUser'], FILTER_DEFAULT),
                 'admin' => filter_var($admin, FILTER_DEFAULT),
             ]);
         } else {

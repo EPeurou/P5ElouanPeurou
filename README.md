@@ -1,4 +1,3 @@
-
 ## Instruction d'installation du projet
 
 ### Installation sur un serveur local
@@ -33,10 +32,10 @@ Le projet est maintenant fonctionnel.
 
 Voici des identifiants qui vous permettront de tester le blog.
 
-#### Compte administrateur: 
+#### Compte administrateur
 ##### email: admin@gmail.com
 ##### mot de passe: admin
 
-#### compte utilisateur standard:
+#### compte utilisateur standard
 ##### email: nonAdmin@gmail.com
 ##### mot de passe: nonAdmin

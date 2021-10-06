@@ -36,9 +36,13 @@ if ($token != $_SESSION['token'] && $_SESSION['token'] != null) {
 
         $userData = $req1->fetch(PDO::FETCH_ASSOC);
         $id = $userData['id'];
-        session_start();
-
-        $_SESSION['idUser'] = $id;
-        session::put($id);
+        
     }
+}
+if(!isset($userData)){
+    header("location: http://127.0.0.1/P5_01_Projet/index.php?action=error");
+} else {
+    session_start();
+    $_SESSION['idUser'] = $id;
+    session::put($id);
 }

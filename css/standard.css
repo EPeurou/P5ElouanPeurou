@@ -1,9 +1,9 @@
 .check-icon {
-    color: rgb(1, 252, 43);
+  color: rgb(1, 252, 43);
 }
 
 .error-icon {
-    color: rgb(252, 1, 1);
+  color: rgb(252, 1, 1);
 }
 
 .be-comment-block {
@@ -50,12 +50,6 @@
 
 .be-comment-content a {
     color:  #383b43;
-}
-
-.be-comment-content span {
-    display:  inline-block;
-    width:  49%;
-    margin-bottom:  15px;
 }
 
 .be-comment-time {

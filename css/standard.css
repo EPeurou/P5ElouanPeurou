@@ -1,14 +1,14 @@
 .check-icon{
-    color: rgb(1, 252, 43) !important;
+    color: rgb(1, 252, 43);
 }
 
 .error-icon{
-    color: rgb(252, 1, 1) !important;
+    color: rgb(252, 1, 1);
 }
 
 
 .be-comment-block {
-    margin-bottom: 50px !important;
+    margin-bottom: 50px;
     border: 1px solid #edeff2;
     border-radius: 2px;
     padding: 50px 70px;
@@ -61,12 +61,9 @@
 }
 
 .be-comment-time {
-    text-align: right;
-}
-
-.be-comment-time {
     font-size: 11px;
     color: #b4b7c1;
+    text-align: right;
 }
 
 .be-comment-text {
@@ -116,7 +113,7 @@
 }
 
 .btn-submit{
-     border-radius: 2em !important;
+     border-radius: 2em;
 }
 
 .icons{

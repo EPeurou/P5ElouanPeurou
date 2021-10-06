@@ -5,7 +5,6 @@ if(isset($_SESSION['idUser'])){
 
     $id = $_SESSION['idUser'];
 
-
     $req=$bdd->prepare("SELECT id,firstName,name,email,password,pseudo FROM user WHERE id = :idUser");
 
     $req->execute(array(

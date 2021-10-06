@@ -11,7 +11,6 @@
   border: 1px solid #edeff2;
   border-radius: 2px;
   padding: 50px 70px;
-  border:1px solid #ffffff;
 }
 
 .comments-title {
@@ -105,26 +104,16 @@
   height: 150px;
 }
 
-.btn-submit{
+.btn-submit {
   border-radius: 2em;
 }
 
-.icons{
+.icons {
   margin-left: 1em;
   margin-right: 0.5em;
   margin-top: 1em;
 }
 
-.navfooter{
- color: white !important;
+.navfooter {
+  color: white !important;
 }
-
-
-
-
-
-
-
-
-
-

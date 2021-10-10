@@ -1,8 +1,10 @@
 <?php
 require 'connect.php';
+require '../controllers/session.php';
 session_start();
 $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-$id = $_SESSION['idUser'];
+$idUser = session::get('idUser');
+$id = $idUser;
 $token = $post['token'];
 
 if ($token !== $_SESSION['token']) {

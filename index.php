@@ -9,6 +9,7 @@ require 'model/selectCategory.php';
 require 'model/selectFlux.php';
 // require 'model/contact.php';
 require 'controller.php';
+// require 'session.php';
 
 spl_autoload_register(function ($class){
     require_once 'controllers/' . $class . '.php';

@@ -6,23 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class session{
-
-    public function put($key, $value){
-        $_SESSION[$key] = $value;
-    }
-
-    public function get($key){
-        return (isset($_SESSION[$key]) ? $_SESSION[$key] : null);
-    }
-
-    public function forget($key){
-        unset($_SESSION[$key]);
-    }
-}
-
-class controller extends session
-{
+class controller {
     public function __construct(){
         $loader = new FilesystemLoader(__DIR__ . '/templates');
         $this->twig = new Environment($loader);

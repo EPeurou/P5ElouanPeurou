@@ -6,7 +6,6 @@ class session {
     }
 
     public static function get($key){
-        // error_log("[get: ".$_SESSION['idUser']."]");
         return (isset($_SESSION[$key]) ? $_SESSION[$key] : null);
     }
 

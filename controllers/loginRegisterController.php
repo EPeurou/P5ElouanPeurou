@@ -4,13 +4,15 @@
 class loginRegisterController extends controller {
 
     public function login(){
-        global $id;
+        $idUser = session::get('idUser');
+        global $idUser;
         print_r ($this->twig->render('login.html.twig',[
         ])); 
     }
 
     public function register(){
-        global $id;
+        $idUser = session::get('idUser');
+        global $idUser;
         print_r ($this->twig->render('register.html.twig',[
         ]));
     }

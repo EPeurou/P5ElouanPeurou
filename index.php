@@ -1,4 +1,7 @@
 <?php
+spl_autoload_register(function ($class){
+    require_once 'controllers/' . $class . '.php';
+});
 require 'model/selectPostDetails.php';
 require 'model/selectMyPost.php';
 require 'model/selectComment.php';
@@ -7,13 +10,7 @@ require 'model/selectUserContact.php';
 require 'model/selectAdmin.php';
 require 'model/selectCategory.php';
 require 'model/selectFlux.php';
-// require 'model/contact.php';
 require 'controller.php';
-// require 'session.php';
-
-spl_autoload_register(function ($class){
-    require_once 'controllers/' . $class . '.php';
-});
 
 $fluxController = new fluxController;
 $postController = new postController;

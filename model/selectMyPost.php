@@ -1,9 +1,11 @@
 <?php
 require 'connect.php';
 session_start();
-if(isset($_SESSION['idUser'])){
+$idUser = session::get('idUser');
 
-    $id = $_SESSION['idUser'];
+if($idUser != null){
+
+    $id = $idUser;
 
     $req=$bdd->prepare('SELECT `id`,`title`,`content`,`description`,`date`,`idUser`,`idCategory`,`author`,DATE_FORMAT(`date`, "%d/%m/%Y-%H:%i:%s") AS creationDate FROM post WHERE idUser = :idUser  ORDER BY id DESC');
 

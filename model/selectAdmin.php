@@ -1,9 +1,10 @@
 <?php
 require 'connect.php';
+$idUser = session::get('idUser');
 
-if(isset($_SESSION['idUser'])){
+if($idUser != null){
 
-    $id = $_SESSION['idUser'];
+    $id = $idUser;
 
     $req=$bdd->prepare("SELECT id,admin FROM user WHERE id = :idUser");
 
